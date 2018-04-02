@@ -8,6 +8,8 @@
 </template>
 
 <script>
+// copied from https://codesandbox.io/s/o29j95wx9
+
 export default {
   props: {
     value: {
@@ -29,11 +31,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// @import '../variables.scss';
-
 .input {
   width: 100%;
   padding: 8px 10px;
-  border: 1px solid $vue-blue;
+  border: 1px solid aquamarine;
 }
 </style>
