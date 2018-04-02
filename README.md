@@ -10,5 +10,5 @@ This project should reflect a minimal setup using another repo for shareable com
 - [x] Use prepared single-file-component
 - [x] Add babel (as real dep) if needed
 - [x] Jest
-- [ ] Write a unit-test 
+- [x] Write a unit-test 
 - [ ] Add another component via remote-common-repo

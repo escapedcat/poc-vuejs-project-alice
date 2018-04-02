@@ -2,7 +2,7 @@
   <div class="wrapper">
     {{ message }}
 
-    <TextInput />
+    <TextInput label="Framework" />
   </div>
 </template>
 

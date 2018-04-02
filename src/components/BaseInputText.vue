@@ -1,10 +1,18 @@
 <template>
-  <input
-    type="text"
-    class="input"
-    :value="value"
-    v-on="inputListeners"
-  >
+  <div>
+    <label
+      :for="id"
+    >
+      {{ label }}
+    </label>
+    <input
+      :id="id"
+      type="text"
+      class="input"
+      :value="value"
+      v-on="inputListeners"
+    >
+  </div>
 </template>
 
 <script>
@@ -12,13 +20,25 @@
 
 export default {
   props: {
+    id: {
+      type: String,
+      default() {
+        return this._uid.toString()
+      },
+    },
     value: {
+      type: String,
+      default: '',
+    },
+    label: {
       type: String,
       default: '',
     },
   },
   computed: {
     inputListeners() {
+      var vm = this;
+      
       return Object.assign({},
         // We add all the listeners from the parent
         this.$listeners,
