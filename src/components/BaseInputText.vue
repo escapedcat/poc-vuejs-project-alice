@@ -3,7 +3,7 @@
     type="text"
     class="input"
     :value="value"
-    v-on="listeners"
+    v-on="inputListeners"
   >
 </template>
 
@@ -18,13 +18,19 @@ export default {
     },
   },
   computed: {
-    listeners() {
-      return {
-        // Pass all component listeners directly to input
-        ...this.$listeners,
-        // Override input listener to work with v-model
-        input: event => this.$emit('input', event.target.value),
-      };
+    inputListeners() {
+      return Object.assign({},
+        // We add all the listeners from the parent
+        this.$listeners,
+        // Then we can add custom listeners or override the
+        // behavior of some listeners.
+        {
+          // This ensures that the component works with v-model
+          input: function (event) {
+            vm.$emit('input', event.target.value)
+          }
+        }
+      )
     },
   },
 };

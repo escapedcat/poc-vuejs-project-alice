@@ -8,6 +8,7 @@ This project should reflect a minimal setup using another repo for shareable com
 - [x] eslint
 - [x] eslint Vue.js plugin
 - [x] Use prepared single-file-component
-- [ ] Add babel if needed
-- [ ] Jest
+- [x] Add babel (as real dep) if needed
+- [x] Jest
+- [ ] Write a unit-test 
 - [ ] Add another component via remote-common-repo
