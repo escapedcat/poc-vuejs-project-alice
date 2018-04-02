@@ -7,19 +7,19 @@
 </template>
 
 <script>
-  import TextInput from "./BaseInputText.vue"
+import TextInput from './BaseInputText.vue';
 
-  export default {
-    name: 'App',
-    components: {
-      TextInput
-    },
-    data() {
-      return {
-      message: 'Hello Vue!'
-    }
+export default {
+  name: 'App',
+  components: {
+    TextInput,
   },
-  }
+  data() {
+    return {
+      message: 'Hello Vue!',
+    };
+  },
+};
 </script>
 
 <style lang="scss">
