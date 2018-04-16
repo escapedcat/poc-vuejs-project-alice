@@ -10,7 +10,7 @@
       type="text"
       class="input"
       :value="value"
-      v-on="inputListeners"
+      v-on="listeners"
     >
   </div>
 </template>
@@ -23,7 +23,8 @@ export default {
     id: {
       type: String,
       default() {
-        return this._uid.toString()
+        // eslint-disable-next-line no-underscore-dangle
+        return this._uid.toString();
       },
     },
     value: {
@@ -36,21 +37,13 @@ export default {
     },
   },
   computed: {
-    inputListeners() {
-      var vm = this;
-      
-      return Object.assign({},
-        // We add all the listeners from the parent
-        this.$listeners,
-        // Then we can add custom listeners or override the
-        // behavior of some listeners.
-        {
-          // This ensures that the component works with v-model
-          input: function (event) {
-            vm.$emit('input', event.target.value)
-          }
-        }
-      )
+    listeners() {
+      return {
+        // Pass all component listeners directly to input
+        ...this.$listeners,
+        // Override input listener to work with v-model
+        input: event => this.$emit('input', event.target.value),
+      };
     },
   },
 };
